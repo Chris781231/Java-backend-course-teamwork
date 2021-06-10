@@ -24,11 +24,21 @@ interfész használatával
   - stb.
 
 ## Employee osztály
-#### Attribútumok: Long id, String name, Localdate birthday, Division division, int salary
+#### Attribútumok: Long id, String name, Enum city, Localdate birthday, Division division, int salary
 #### Konstruktor:
- - minden adattal
- - name, birthday, division, salary
+  - minden adattal
+  - name, city, birthday, division, salary
 #### Getterek, setterek
 #### toString: Olvashatóan formázott kiíratásra az azonosítón kívül minden adattal (tervezés alatt)
 #### equals, hashcode: 2 alkalmazott megegyezik, ha az id-je megegyezik, kivéve ha az id értéke null (adatbázisba mentés után kap id-t)
 #### egyéb lekérdező metódusok (pl. életkor, fizetésemelés, bónusz stb. - tervezés alatt)
+
+## City (Enum)
+#### Városok felsorolása
+#### Attribútumai:
+  - BigDecimal distance: távolság Budapesttől (a cég székhelye) - lehetőség szerint a double kerülendő a számítási pontatlansága miatt
+
+### Megoldási javaslatok:
+  - Lehetőség szerint Optional-t adjunk vissza (null helyett Optional.empty()).
+  - Kivételkezelés - ellenőrizni kell a felhasználótól kapott adatokat.
+  - Teszteseteknél JUnit5, AssertJ, Mochito használata (amelyikkel a legegyszerűbben, legrövidebben megoldható).
